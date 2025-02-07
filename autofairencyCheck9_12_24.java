@@ -29,8 +29,8 @@ public class autofairencyCheck9_12_24 {
 
 	
 	 	  // Twilio credentials
-	     public static final String ACCOUNT_SID = "AC5aae955764b57eb00667f2801695bb00";
-	     public static final String AUTH_TOKEN = "1e2c7012e6a58c791a9371d76f8378d9";
+	     public static final String ACCOUNT_SID = "123";
+	     public static final String AUTH_TOKEN = "123";
 
 
 
@@ -57,10 +57,10 @@ public static void main(String[] args) {
     
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));	
     	
-     String url = "https://apps.brakecheck.com/salesgui/login";	
+     String url = "https://.brakecheck.com/";	
         driver.get(url); // Try to reach the URL
-        driver.findElement(By.id("email")).sendKeys("MCondes");
-        driver.findElement(By.id("password")).sendKeys("Diara2009");
+        driver.findElement(By.id("email")).sendKeys("");
+        driver.findElement(By.id("password")).sendKeys("");
         driver.findElement(By.xpath("//button[normalize-space()='Log In']")).click();
 
         Thread.sleep(10000); // Sleep to allow page load
@@ -72,7 +72,7 @@ public static void main(String[] args) {
         actions.moveToElement(elementToHover).perform();
    
         
-        WebElement sideBarTp = driver.findElement(By.xpath("(//a[@href='/salesgui/repairOrderHistory'])[1]"));
+        WebElement sideBarTp = driver.findElement(By.xpath("(//a[@href=''])[1]"));
         
         sideBarTp.click();
         
@@ -84,7 +84,7 @@ public static void main(String[] args) {
         String currentUrl = driver.getCurrentUrl();
       System.out.println("Current URL: " + currentUrl);
        
-        if (searchResults.size() > 0 || currentUrl.contains("https://apps.brakecheck.com/salesgui/repairOrderHistory" )) {
+        if (searchResults.size() > 0 || currentUrl.contains("https://" )) {
             System.out.println("Autofairency is up");
             messageBody = "This is an Automated Test. Autofairency is up";
         } else {
@@ -96,8 +96,8 @@ public static void main(String[] args) {
 //        String currentUrl = driver.getCurrentUrl();
 //        System.out.println("Current URL: " + currentUrl);
 //        
-//        if (currentUrl.contains("https://apps.brakecheck.com/salesgui/dashboard")) {
-//            System.out.println("Autofairency is up");
+//        if (currentUrl.contains("https://")) {
+//            System.out.println(" is up");
 //            messageBody = "This is an Automated Test. Autofairency is up";
 //        } else {
 //            System.out.println("The Autofairency is down");
@@ -113,7 +113,7 @@ public static void main(String[] args) {
         }
     
     // List of phone numbers to notify
-    List<String> phoneNumbers = Arrays.asList("+12109921087", "+12107930377", "+12103783596", "+12108270770", "+12106299488", "+12105734626");
+    List<String> phoneNumbers = Arrays.asList("+123456789");
     
     // Send SMS to each phone number
     for (String phoneNumber : phoneNumbers) {
@@ -127,7 +127,7 @@ public static void sendTextMessage(String to, String messageBody) {
         System.out.println("Attempting to send SMS to " + to + "...");
         Message message = Message.creator(
                 new PhoneNumber(to), // To number
-                new PhoneNumber("22431"), // From number (your Twilio number)
+                new PhoneNumber("22222"), // From number (your Twilio number)
                 messageBody) // Message body
             .create();
 
